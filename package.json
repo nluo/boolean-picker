@@ -1,0 +1,25 @@
+{
+  "name": "boolean-picker",
+  "version": "1.0.0",
+  "description": "Traverse an object and picks up the boolean-like value(e.g. 'yes', 'no') to property boolean (true, false)",
+  "main": "index.js",
+  "scripts": {
+    "test": "node tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nluo/boolean-picker.git"
+  },
+  "keywords": [
+    "boolean",
+    "convert",
+    "boolean",
+    "convert"
+  ],
+  "author": "Nick Luo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nluo/boolean-picker/issues"
+  },
+  "homepage": "https://github.com/nluo/boolean-picker"
+}
