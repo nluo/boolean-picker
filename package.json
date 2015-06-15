@@ -1,7 +1,7 @@
 {
   "name": "boolean-picker",
   "version": "1.0.0",
-  "description": "Traverse an object and picks up the boolean-like value(e.g. 'yes', 'no') to property boolean (true, false)",
+  "description": "Traverse a given object recursively, picks up the boolean-like value(e.g. 'yes', 'no') and converts into proper boolean (true, false)",
   "main": "index.js",
   "scripts": {
     "test": "node tests"
