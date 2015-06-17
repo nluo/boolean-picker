@@ -1,5 +1,5 @@
 # What
-Traverse an object and picks up the boolean-like value(e.g. 'yes', 'no') to property boolean (true, false). It also supports additional custom true/false values (e.g. '1', '0') by passing extra options.
+Traverse an object and picks up the boolean-like value(e.g. 'yes', 'no') to proper boolean (true, false). It also supports additional custom true/false values (e.g. '1', '0') by passing extra options.
 
 # Get Started
 Require and use it:
