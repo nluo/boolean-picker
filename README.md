@@ -27,7 +27,7 @@ will output:
 }
 ```
 
-Default true and false values to check and convert in this module are ['yes', 'true'] and ['no', 'false']. You could pass custom true/false values for this module to convert:
+Default true and false values to check and convert in this module are ['yes', 'true'] and ['no', 'false']. You could pass addtional custom true/false values for this module to convert:
 
 ```
 var booleanPicker = require('boolean-picker')({trueValues: ['1', 'okay']});
