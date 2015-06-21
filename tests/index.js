@@ -158,6 +158,32 @@ test('test with boolmap contains object', function(t){
     t.deepEqual(booleanPicker(thing, boolMap, ({trues: defaultTrues, falses: defaulFalses})), expectedResult);
 });
 
+test('edge case: test with boolmap contains a number', function(t){
+    t.plan(1);
+
+    var expectedResult = {
+    	foo: true,
+		bar: 'false',
+		animals: [{name: 'dog', isAlive: 'yes'}, {name: 'fish', isAlive: 'yes'}],
+		majigger: 'yes'
+    };
+
+    var thing = {
+	  foo: 'yes',
+	  bar: 'false',
+	  animals: [{name: 'dog', isAlive: 'yes'}, {name: 'fish', isAlive: 'yes'}],
+	  majigger: 'yes'
+	};
+
+	var boolMap = {
+		foo: true,
+		animals: 0
+	};
+ 
+    t.deepEqual(booleanPicker(thing, boolMap, ({trues: defaultTrues, falses: defaulFalses})), expectedResult);
+});
+
+
 test('test when key does not exist', function(t){
     t.plan(1);
 
