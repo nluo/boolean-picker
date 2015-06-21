@@ -1,7 +1,7 @@
 # What
-Traverse a given object recursively, picks up the custom defined boolean-like values and object keys, and convert them to property boolean values (i.e. true, false)
+Traverse a given object recursively, picks up the custom defined boolean-like values (e.g. `'yes'`, `'no'`, `'ok'`, `1`) and object keys, and returns a new object with those values converted to boolean values (i.e. `true`, `false`). You can use a nested whitelist of specified keys-to-convert to limit conversion-to-boolean to those keys for your objects.
 
-# Get Started
+# Quick Reference
 
 ## API
 ```
@@ -10,10 +10,10 @@ booleanPicker(object, boolMap, options);
 ```
 
 * `object`: the original object
-* `boolMap`: the boolMap is where you want to define which key you want boolean-picker to convert the key
+* `boolMap`: the boolMap is where you want to define which keys you want boolean-picker to convert the key. Acts as a nested whitelist.
 * `options`: options is where you provide the custom true and false values, e.g. {trues: ['true', 'yes'], falses: ['false', 'no']}
 
-Require and use it:
+Require and use it now:
 ```
 var booleanPicker = require('boolean-picker');
 // the mock object
@@ -22,16 +22,18 @@ var object = {
     bar: 'no',
     baz: {majigger: 'true'},
     animals: [{name: 'dog', isAlive: 'yes'}, {name: 'fish', isAlive: 'yes'}],
+    zed: 'affirmative'
 };
 
 var boolMap = {
   foo: true,
+  zed: true,
   baz: {
     majigger: true
   } 
 };
 
-var result = booleanPicker(object, boolMap, {trues: ['true', 'yes'], falses: ['false', 'no']});
+var result = booleanPicker(object, boolMap, {trues: ['true', 'yes', 'affirmative'], falses: ['false', 'no']});
 
 ```
 will output:
@@ -40,11 +42,12 @@ will output:
   foo: true,
   bar: 'no',
   baz: { majigger: true },
-  animals: [ {name: 'dog', isAlive: 'yes'}, { name: 'fish', isAlive: 'yes' } ] 
+  animals: [ {name: 'dog', isAlive: 'yes'}, { name: 'fish', isAlive: 'yes' } ] ,
+  zed: true
 }
 ```
 
-If what you want boolean-picker to pick up and convert is the value inside the array, e.g. the 'animals' key, you could do:
+If what you want boolean-picker to pick up and convert the nested values inside the array, i.e. the 'animals' key, you could do:
 
 
 ```
