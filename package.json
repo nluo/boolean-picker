@@ -1,6 +1,6 @@
 {
   "name": "boolean-picker",
-  "version": "0.0.4",
+  "version": "1.0.0",
   "description": "Traverse a given object recursively, picks up the boolean-like value(e.g. 'yes', 'no') and converts into proper boolean (true, false)",
   "main": "index.js",
   "scripts": {
