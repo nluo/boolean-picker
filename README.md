@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/nluo/boolean-picker.svg?branch=master)](https://travis-ci.org/nluo/boolean-picker)
+
 # What
 Traverse a given object recursively, picks up the custom defined boolean-like values (e.g. `'yes'`, `'no'`, `'ok'`, `1`) and object keys, and returns a new object with those values converted to boolean values (i.e. `true`, `false`). You can use a nested whitelist of specified keys-to-convert to limit conversion-to-boolean to those keys for your objects.
 
