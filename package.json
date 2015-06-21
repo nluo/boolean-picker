@@ -1,7 +1,7 @@
 {
   "name": "boolean-picker",
   "version": "1.0.0",
-  "description": "Traverse a given object recursively, picks up the boolean-like value(e.g. 'yes', 'no') and converts into proper boolean (true, false)",
+  "description": "Returns a copy of an object with boolean-like non-boolean values, e.g. 'yes', 'no', 'ok', 1, converted to booleans. Use a nested whitelist of specified keys-to-convert to limit conversion-to-boolean to those keys.",
   "main": "index.js",
   "scripts": {
     "test": "node tests"
