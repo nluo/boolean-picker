@@ -10,7 +10,9 @@ booleanPicker(object, boolMap, options);
 ```
 
 object: the original object
+
 boolMap: the boolMap is where you want to define which key you want boolean-picker to convert the key
+
 options: options is where you provide the custom true and false values, e.g. {trues: ['true', 'yes'], falses: ['false', 'no']}
 
 Require and use it:
