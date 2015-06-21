@@ -1,7 +1,7 @@
 {
   "name": "boolean-picker",
-  "version": "0.0.3",
-  "description": "Traverse a given object recursively, picks up the boolean-like value(e.g. 'yes', 'no') and converts into proper boolean (true, false)",
+  "version": "1.0.0",
+  "description": "Returns a copy of an object with boolean-like non-boolean values, e.g. 'yes', 'no', 'ok', 1, converted to booleans. Use a nested whitelist of specified keys-to-convert to limit conversion-to-boolean to those keys.",
   "main": "index.js",
   "scripts": {
     "test": "node tests"
@@ -14,12 +14,19 @@
     "boolean",
     "convert",
     "boolean",
-    "convert"
+    "convert",
+    "boolify"
   ],
   "author": "Nick Luo",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/nluo/boolean-picker/issues"
   },
-  "homepage": "https://github.com/nluo/boolean-picker"
+  "homepage": "https://github.com/nluo/boolean-picker",
+  "dependencies": {
+    "clone": "^1.0.2"
+  },
+  "devDependencies": {
+    "tape": "^3.5.0"
+  }
 }
