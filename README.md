@@ -14,6 +14,7 @@ booleanPicker(object, boolMap, options);
 * `options`: options is where you provide the custom true and false values, e.g. {trues: ['true', 'yes'], falses: ['false', 'no']}
 
 Require and use it now:
+
 ```
 var booleanPicker = require('boolean-picker');
 // the mock object
@@ -48,7 +49,6 @@ will output:
 ```
 
 If what you want boolean-picker to pick up and convert the nested values inside the array, i.e. the 'animals' key, you could do:
-
 
 ```
 var boolMap = {
