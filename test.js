@@ -38,6 +38,30 @@ console.log(
 );
 
 
+// var booleanPicker = require('boolean-picker');
+var object = {
+    foo: 'yes',
+    bar: 'no',
+    baz: {majigger: 'true'},
+    animals: [ {name: 'dog', isAlive: 'yes'}, { name: 'fish', isAlive: 'yes' } ],
+};
+
+
+// the boolMap is where you want to change the key
+var boolMap = {
+  foo: true,
+  baz: true,
+  animals: {
+    0: {
+      isAlive: true
+    }
+  }
+};
+
+var result = booleanPicker(object, boolMap, {trues: ['true', 'yes'], falses: ['false', 'no']});
+
+console.log(result);
+
 // booleanPicker = new BooleanPicker();
 
 // property = {

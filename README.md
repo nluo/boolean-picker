@@ -1,65 +1,101 @@
 # What
-Traverse an object and picks up the boolean-like value(e.g. 'yes', 'no') to proper boolean (true, false). It also supports additional custom true/false values (e.g. '1', '0') by passing extra options.
+Traverse a given object recursively, picks up the custom defined boolean-like values and object keys, and convert them to property boolean values (i.e. true, false)
 
 # Get Started
+
+## API
+```
+booleanPicker(object, boolMap, options);
+
+```
+
+object: the original object
+boolMap: the boolMap is where you want to define which key you want boolean-picker to convert the key
+options: options is where you provide the custom true and false values, e.g. {trues: ['true', 'yes'], falses: ['false', 'no']}
+
 Require and use it:
 ```
-var booleanPicker = require('boolean-picker')();
-var property = {
-  smoking: 'yes',
-  alarm: 'true',
-  features: ['hotWater', 'pool', {airCon: '1', pets: 'no'}],
-  bedrooms: '3',
-  bathrooms: '1'
+var booleanPicker = require('boolean-picker');
+// the mock object
+var object = {
+    foo: 'yes',
+    bar: 'no',
+    baz: {majigger: 'true'},
+    animals: [{name: 'dog', isAlive: 'yes'}, {name: 'fish', isAlive: 'yes'}],
 };
 
-console.log(booleanPicker(property));
+var boolMap = {
+  foo: true,
+  baz: true 
+};
+
+var result = booleanPicker(object, boolMap, {trues: ['true', 'yes'], falses: ['false', 'no']});
 
 ```
 will output:
 ```
 { 
-  smoking: true,
-  alarm: true,
-  features: ['hotWater', 'pool', {airCon: '1', pets: false}],
-  bedrooms: '3',
-  bathrooms: '1'
+  foo: true,
+  bar: 'no',
+  baz: { majigger: 'true' },
+  animals: [ {name: 'dog', isAlive: 'yes'}, { name: 'fish', isAlive: 'yes' } ] 
 }
 ```
 
-Default true and false values to check and convert in this module are ['yes', 'true'] and ['no', 'false']. You could pass custom true/false values for this module to convert:
+If what you want boolean-picker to pick up and convert is the value inside the array, e.g. the 'animals' key, you could do:
+
 
 ```
-var booleanPicker = require('boolean-picker')({trueValues: ['1', 'okay']});
+var boolMap = {
+  foo: true,
+  baz: true,
+  animals: [{isAlive: true}]
+};
+
 ```
-It will now output:
+
+which will convert both objects in animals to true
+
+output:
 
 ```
 { 
-  smoking: true,
-  alarm: true,
-  features: [ 'hotWater', 'pool', { airCon: true, pets: false } ],
-  bedrooms: '3',
-  bathrooms: true
+  foo: true,
+  bar: 'no',
+  baz: { majigger: 'true' },
+  animals: 
+   [ { name: 'dog', isAlive: true },
+     { name: 'fish', isAlive: true } ] 
 }
-  
 ```
-Everything looks good except bathrooms has been converted to true. To solve this, you could pass exclusions (array) inside the option when initialise boolean-picker:
+
+If you just want to convert a specific object inside the array, say the {name: 'dog', isAlive: 'yes'}, you can define an object with position key:
+
 
 ```
-var booleanPicker = require('boolean-picker')({trueValues: ['1', 'okay'], exclusions: ['bathrooms']});
+var boolMap = {
+  foo: true,
+  baz: true,
+  animals: {
+    0: {
+      isAlive: true
+    }
+  }
+};
 
 ```
-It will output:
+
+output: 
 
 ```
 { 
-  smoking: true,
-  alarm: true,
-  features: [ 'hotWater', 'pool', { airCon: true, pets: false } ],
-  bedrooms: '3',
-  bathrooms: '1' 
+  foo: true,
+  bar: 'no',
+  baz: { majigger: 'true' },
+  animals: 
+   [ { name: 'dog', isAlive: true },
+     { name: 'fish', isAlive: 'yes' } ] 
+
 }
+
 ```
-
-
