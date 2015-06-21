@@ -104,3 +104,9 @@ output:
 }
 
 ```
+
+## Tests
+
+    npm test
+
+Currently tests are all passed and with 100% coverage
