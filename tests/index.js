@@ -13,7 +13,7 @@ test('default trues and falses test 2', function(t){
 		majigger: 'yes'
     };
 
-    var thing = {
+    var mockObject = {
 	  foo: 'yes',
 	  bar: 'no',
 	  animals: ['dog', 'cat', {name: 'fish', isAlive: 'yes'}],
@@ -25,7 +25,7 @@ test('default trues and falses test 2', function(t){
 		bar: true,
 	};
  
-    t.deepEqual(booleanPicker(thing, boolMap, ({trues: defaultTrues, falses: defaulFalses})), expectedResult);
+    t.deepEqual(booleanPicker(mockObject, boolMap, ({trues: defaultTrues, falses: defaulFalses})), expectedResult);
 });
 
 test('default trues and falses test 2', function(t){
@@ -38,7 +38,7 @@ test('default trues and falses test 2', function(t){
 		majigger: 'yes'
     };
 
-    var thing = {
+    var mockObject = {
 	  foo: 'yes',
 	  bar: 'no way',
 	  animals: ['dog', 'cat', {name: 'fish', isAlive: 'yes'}],
@@ -50,7 +50,7 @@ test('default trues and falses test 2', function(t){
 		bar: true,
 	};
  
-    t.deepEqual(booleanPicker(thing, boolMap, ({trues: defaultTrues, falses: defaulFalses})), expectedResult);
+    t.deepEqual(booleanPicker(mockObject, boolMap, ({trues: defaultTrues, falses: defaulFalses})), expectedResult);
 });
 
 
@@ -64,7 +64,7 @@ test('test with boolMap array', function(t){
 		majigger: 'yes'
     };
 
-    var thing = {
+    var mockObject = {
 	  foo: 'yes',
 	  bar: 'false',
 	  animals: ['dog', 'cat', {name: 'fish', isAlive: 'yes'}],
@@ -76,7 +76,7 @@ test('test with boolMap array', function(t){
 		animals: [{isAlive: true}]
 	};
  
-    t.deepEqual(booleanPicker(thing, boolMap, ({trues: defaultTrues, falses: defaulFalses})), expectedResult);
+    t.deepEqual(booleanPicker(mockObject, boolMap, ({trues: defaultTrues, falses: defaulFalses})), expectedResult);
 });
 
 test('test with boolMap array, but the value of original object is not object', function(t){
@@ -89,7 +89,7 @@ test('test with boolMap array, but the value of original object is not object', 
 		majigger: 'yes'
     };
 
-    var thing = {
+    var mockObject = {
 	  foo: 'yes',
 	  bar: 'false',
 	  animals: 'haha',
@@ -101,7 +101,7 @@ test('test with boolMap array, but the value of original object is not object', 
 		animals: [{isAlive: true}]
 	};
  
-    t.deepEqual(booleanPicker(thing, boolMap, ({trues: defaultTrues, falses: defaulFalses})), expectedResult);
+    t.deepEqual(booleanPicker(mockObject, boolMap, ({trues: defaultTrues, falses: defaulFalses})), expectedResult);
 });
 
 test('test with default trues, falses + convert value in object', function(t){
@@ -114,7 +114,7 @@ test('test with default trues, falses + convert value in object', function(t){
 		majigger: 'yes'
     };
 
-    var thing = {
+    var mockObject = {
 	  foo: 'yes',
 	  bar: 'false',
 	  animals: ['dog', 'cat', {name: 'fish', isAlive: 'yes'}],
@@ -126,7 +126,7 @@ test('test with default trues, falses + convert value in object', function(t){
 		animals: [{isAlive: true}]
 	};
  
-    t.deepEqual(booleanPicker(thing, boolMap, ({trues: defaultTrues, falses: defaulFalses})), expectedResult);
+    t.deepEqual(booleanPicker(mockObject, boolMap, ({trues: defaultTrues, falses: defaulFalses})), expectedResult);
 });
 
 test('test with boolmap contains object', function(t){
@@ -139,7 +139,7 @@ test('test with boolmap contains object', function(t){
 		majigger: 'yes'
     };
 
-    var thing = {
+    var mockObject = {
 	  foo: 'yes',
 	  bar: 'false',
 	  animals: [{name: 'dog', isAlive: 'yes'}, {name: 'fish', isAlive: 'yes'}],
@@ -155,7 +155,7 @@ test('test with boolmap contains object', function(t){
 		}
 	};
  
-    t.deepEqual(booleanPicker(thing, boolMap, ({trues: defaultTrues, falses: defaulFalses})), expectedResult);
+    t.deepEqual(booleanPicker(mockObject, boolMap, ({trues: defaultTrues, falses: defaulFalses})), expectedResult);
 });
 
 test('edge case: test with boolmap contains a number', function(t){
@@ -168,7 +168,7 @@ test('edge case: test with boolmap contains a number', function(t){
 		majigger: 'yes'
     };
 
-    var thing = {
+    var mockObject = {
 	  foo: 'yes',
 	  bar: 'false',
 	  animals: [{name: 'dog', isAlive: 'yes'}, {name: 'fish', isAlive: 'yes'}],
@@ -180,7 +180,7 @@ test('edge case: test with boolmap contains a number', function(t){
 		animals: 0
 	};
  
-    t.deepEqual(booleanPicker(thing, boolMap, ({trues: defaultTrues, falses: defaulFalses})), expectedResult);
+    t.deepEqual(booleanPicker(mockObject, boolMap, ({trues: defaultTrues, falses: defaulFalses})), expectedResult);
 });
 
 
@@ -188,7 +188,7 @@ test('test when key does not exist', function(t){
     t.plan(1);
 
 
-    var thing = {
+    var mockObject = {
 	  foo: 'yes',
 	  bar: 'false',
 	  animals: [{name: 'dog', isAlive: 'yes'}, {name: 'fish', isAlive: 'yes'}],
@@ -196,17 +196,17 @@ test('test when key does not exist', function(t){
 	};
 
 	var boolMap = {
-		thing: true
+		mockObject: true
 	};
  
-    t.deepEqual(booleanPicker(thing, boolMap, ({trues: defaultTrues, falses: defaulFalses})), thing);
+    t.deepEqual(booleanPicker(mockObject, boolMap, ({trues: defaultTrues, falses: defaulFalses})), mockObject);
 });
 
 
 test('test with no options passed', function(t){
     t.plan(1);
 
-    var thing = {
+    var mockObject = {
 	  foo: 'yes',
 	  bar: 'false',
 	  animals: ['dog', 'cat', {name: 'fish', isAlive: 'yes'}],
@@ -218,7 +218,7 @@ test('test with no options passed', function(t){
 		animals: [{isAlive: true}]
 	};
  
-    t.deepEqual(booleanPicker(thing, boolMap), thing);
+    t.deepEqual(booleanPicker(mockObject, boolMap), mockObject);
 });
 
 
@@ -232,7 +232,7 @@ test('test with only true options passed', function(t){
 		majigger: true
     };
 
-    var thing = {
+    var mockObject = {
 	  foo: 'yes',
 	  bar: 'false',
 	  animals: ['dog', 'cat', {name: 'fish', isAlive: 'yes'}],
@@ -244,5 +244,61 @@ test('test with only true options passed', function(t){
 		majigger: true
 	};
  
-    t.deepEqual(booleanPicker(thing, boolMap, ({trues: defaultTrues})), expectedResult);
+    t.deepEqual(booleanPicker(mockObject, boolMap, ({trues: defaultTrues})), expectedResult);
+});
+
+test('test with only false options passed', function(t){
+    t.plan(1);
+
+    var expectedResult = {
+    	foo: 'yes',
+		bar: 'false',
+		animals: ['dog', 'cat', {name: 'fish', isAlive: 'yes'}],
+		majigger: false
+    };
+
+    var mockObject = {
+	  foo: 'yes',
+	  bar: 'false',
+	  animals: ['dog', 'cat', {name: 'fish', isAlive: 'yes'}],
+	  majigger: 'false'
+	};
+
+	var boolMap = {
+		foo: true,
+		majigger: true
+	};
+ 
+    t.deepEqual(booleanPicker(mockObject, boolMap, ({falses: defaulFalses})), expectedResult);
+});
+
+
+test('test with custom true/fasle options', function(t){
+    t.plan(1);
+
+    var expectedResult = {
+    	foo: true,
+		bar: 'false',
+		baz: 'yes',
+		animals: ['dog', 'cat', {name: 'fish', isAlive: 'yes'}],
+		majigger: false
+    };
+
+    var mockTrues = ['okay', 'yes'];
+    var mockFalses = ['not really'];
+
+    var mockObject = {
+	  foo: 'okay',
+	  bar: 'false',
+	  baz: 'yes',
+	  animals: ['dog', 'cat', {name: 'fish', isAlive: 'yes'}],
+	  majigger: 'not really'
+	};
+
+	var boolMap = {
+		foo: true,
+		majigger: true
+	};
+ 
+    t.deepEqual(booleanPicker(mockObject, boolMap, ({trues: mockTrues, falses: mockFalses})), expectedResult);
 });
