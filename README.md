@@ -3,6 +3,11 @@ Traverse a given object recursively, picks up the custom defined boolean-like va
 
 # Quick Reference
 
+## Install
+```
+npm i boolean-picker --save
+```
+
 ## API
 ```
 booleanPicker(object, boolMap, options);
