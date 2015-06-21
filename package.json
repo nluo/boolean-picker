@@ -14,7 +14,8 @@
     "boolean",
     "convert",
     "boolean",
-    "convert"
+    "convert",
+    "boolify"
   ],
   "author": "Nick Luo",
   "license": "MIT",
@@ -24,5 +25,8 @@
   "homepage": "https://github.com/nluo/boolean-picker",
   "dependencies": {
     "clone": "^1.0.2"
+  },
+  "devDependencies": {
+    "tape": "^3.5.0"
   }
 }

@@ -9,6 +9,8 @@ function transformBoolean (value, options) {
     if (options.falses.indexOf(value) > -1) {
         return false;
     }
+
+    return value;
 }
 
 function transform(object, boolMap, options) {
